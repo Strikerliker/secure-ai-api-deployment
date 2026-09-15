@@ -1,0 +1,11 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfplan
+terraform/.terraform.lock.hcl
+terraform/secure-ai-api.zip
+.env
+.DS_Store
