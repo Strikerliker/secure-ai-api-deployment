@@ -22,6 +22,14 @@ The reference architecture uses Amazon API Gateway, AWS Lambda, AWS Secrets Mana
 
 ## Architecture
 
+### Data flow
+
+![Secure AI API data flow](docs/secure-ai-api-data-flow.svg)
+
+### AWS architecture
+
+![Secure AI API AWS architecture](docs/secure-ai-api-aws-architecture.svg)
+
 ```text
 Client
   |
