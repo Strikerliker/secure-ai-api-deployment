@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+<title id="title">Secure AI API on AWS – Data Flow Diagram</title>
+<desc id="desc">End-to-end request and response flow from clients through Route 53, CloudFront, WAF, Cognito, API Gateway, Lambda, Amazon Bedrock, and supporting S3, DynamoDB, Secrets Manager, CloudWatch, and KMS controls.</desc>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#061a30"/><stop offset="1" stop-color="#03111f"/></linearGradient>
+<filter id="sh" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000" flood-opacity=".24"/></filter>
+<marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#1f74c9"/></marker>
+<marker id="g" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#1da55b"/></marker>
+<style>.t{font-family:Arial,sans-serif;fill:#082855}.w{font-family:Arial,sans-serif;fill:#fff}.h{font-weight:700}.m{font-family:Arial,sans-serif;fill:#426a96}.box{fill:#fff;stroke:#b9d8f5;stroke-width:1.5}.ln{stroke:#1f74c9;stroke-width:3;fill:none;marker-end:url(#a)}.ret{stroke:#1da55b;stroke-width:4;fill:none;marker-end:url(#g)}.dash{stroke:#3a70b0;stroke-width:2;fill:none;stroke-dasharray:6 5;marker-end:url(#a)}.tiny{font-size:11px}.small{font-size:13px}</style>
+</defs>
+<rect width="1600" height="900" rx="22" fill="url(#bg)"/>
+<text x="800" y="48" text-anchor="middle" class="w h" font-size="39">Secure AI API on AWS – Data Flow Diagram</text>
+<text x="800" y="80" text-anchor="middle" class="w" font-size="17">End-to-end request and response flow for a secure Bedrock-powered API</text>
+<rect x="25" y="120" width="1550" height="665" rx="18" fill="#f8fbff" stroke="#42aef5" stroke-width="2"/>
+
+<!-- numbered cards -->
+<g transform="translate(45 160)">
+ <rect width="180" height="320" rx="14" class="box" filter="url(#sh)"/><circle cx="28" cy="28" r="18" fill="#1677c8"/><text x="28" y="34" text-anchor="middle" class="w h" font-size="16">1</text>
+ <text x="55" y="34" class="t h" font-size="16">Users / Clients</text><rect x="48" y="70" width="84" height="58" rx="8" fill="#eaf4ff" stroke="#b8d7f3"/><path d="M65 108h50M73 80h34v22H73z" stroke="#2364a6" stroke-width="3" fill="none"/><text x="90" y="160" text-anchor="middle" class="t h" font-size="14">Web / Mobile</text><text x="90" y="185" text-anchor="middle" class="m small">HTTPS request</text>
+</g>
+
+<g transform="translate(300 160)">
+ <rect width="155" height="270" rx="14" class="box" filter="url(#sh)"/><circle cx="28" cy="28" r="18" fill="#1677c8"/><text x="28" y="34" text-anchor="middle" class="w h" font-size="16">2</text>
+ <rect x="46" y="68" width="64" height="64" rx="10" fill="#8C4FFF"/><path d="M78 80l19 9v20l-19 9-19-9V89z" fill="none" stroke="#fff" stroke-width="2.5"/><text x="78" y="104" text-anchor="middle" class="w h" font-size="14">53</text>
+ <text x="78" y="166" text-anchor="middle" class="t h" font-size="14">Route 53</text><text x="78" y="189" text-anchor="middle" class="m small">DNS resolution</text>
+</g>
+
+<g transform="translate(475 160)">
+ <rect width="155" height="270" rx="14" class="box" filter="url(#sh)"/><circle cx="28" cy="28" r="18" fill="#1677c8"/><text x="28" y="34" text-anchor="middle" class="w h" font-size="16">3</text>
+ <rect x="46" y="68" width="64" height="64" rx="10" fill="#8C4FFF"/><circle cx="78" cy="100" r="17" fill="none" stroke="#fff" stroke-width="2.6"/><path d="M61 100h34M78 83c7 7 7 27 0 34M78 83c-7 7-7 27 0 34" stroke="#fff" stroke-width="2"/>
+ <text x="78" y="166" text-anchor="middle" class="t h" font-size="14">CloudFront</text><text x="78" y="189" text-anchor="middle" class="m small">Edge delivery</text>
+</g>
+
+<g transform="translate(650 160)">
+ <rect width="155" height="270" rx="14" class="box" filter="url(#sh)"/><circle cx="28" cy="28" r="18" fill="#1677c8"/><text x="28" y="34" text-anchor="middle" class="w h" font-size="16">4</text>
+ <rect x="46" y="68" width="64" height="64" rx="10" fill="#DD344C"/><circle cx="78" cy="100" r="18" fill="none" stroke="#fff" stroke-width="2.5"/><path d="M78 78v9M78 113v9M56 100h9M91 100h9M64 86l7 7M85 107l7 7M92 86l-7 7M71 107l-7 7" stroke="#fff" stroke-width="2"/>
+ <text x="78" y="166" text-anchor="middle" class="t h" font-size="14">AWS WAF</text><text x="78" y="189" text-anchor="middle" class="m small">Inspect + protect</text>
+</g>
+
+<g transform="translate(825 160)">
+ <rect width="155" height="270" rx="14" class="box" filter="url(#sh)"/><circle cx="28" cy="28" r="18" fill="#1677c8"/><text x="28" y="34" text-anchor="middle" class="w h" font-size="16">5</text>
+ <rect x="46" y="68" width="64" height="64" rx="10" fill="#DD344C"/><rect x="58" y="82" width="40" height="30" rx="3" fill="none" stroke="#fff" stroke-width="2.5"/><circle cx="73" cy="96" r="5" fill="none" stroke="#fff" stroke-width="2"/><path d="M81 91h11M81 98h11M81 105h8" stroke="#fff" stroke-width="2"/>
+ <text x="78" y="166" text-anchor="middle" class="t h" font-size="14">Cognito</text><text x="78" y="189" text-anchor="middle" class="m small">Authenticate / JWT</text>
+</g>
+
+<g transform="translate(1000 160)">
+ <rect width="155" height="270" rx="14" class="box" filter="url(#sh)"/><circle cx="28" cy="28" r="18" fill="#1677c8"/><text x="28" y="34" text-anchor="middle" class="w h" font-size="16">6</text>
+ <rect x="46" y="68" width="64" height="64" rx="10" fill="#8C4FFF"/><path d="M61 85h34v30H61zM69 92l-5 8 5 8M87 92l5 8-5 8M78 90v20" fill="none" stroke="#fff" stroke-width="2.4"/>
+ <text x="78" y="166" text-anchor="middle" class="t h" font-size="14">API Gateway</text><text x="78" y="189" text-anchor="middle" class="m small">Secure endpoint</text>
+</g>
+
+<g transform="translate(1175 160)">
+ <rect width="155" height="270" rx="14" class="box" filter="url(#sh)"/><circle cx="28" cy="28" r="18" fill="#1677c8"/><text x="28" y="34" text-anchor="middle" class="w h" font-size="16">7</text>
+ <rect x="46" y="68" width="64" height="64" rx="10" fill="#FF9900"/><path d="M61 82h14l11 37H75l-6-18-7 18H51l13-28z" fill="none" stroke="#fff" stroke-width="3"/>
+ <text x="78" y="166" text-anchor="middle" class="t h" font-size="14">AWS Lambda</text><text x="78" y="189" text-anchor="middle" class="m small">Business logic</text>
+</g>
+
+<g transform="translate(1390 160)">
+ <rect width="155" height="270" rx="14" class="box" filter="url(#sh)"/><circle cx="28" cy="28" r="18" fill="#1677c8"/><text x="28" y="34" text-anchor="middle" class="w h" font-size="16">8</text>
+ <rect x="46" y="68" width="64" height="64" rx="10" fill="#00A9A5"/><path d="M78 79c-10 0-17 8-17 18 0 6 3 11 8 14v10M78 79c10 0 17 8 17 18 0 6-3 11-8 14v10M69 95h18M69 103h18M78 79v42" fill="none" stroke="#fff" stroke-width="2.4"/>
+ <text x="78" y="166" text-anchor="middle" class="t h" font-size="14">Amazon Bedrock</text><text x="78" y="189" text-anchor="middle" class="m small">Model inference</text>
+</g>
+
+<!-- primary arrows -->
+<path d="M225 320H300" class="ln"/><text x="262" y="300" text-anchor="middle" class="t tiny">HTTPS</text>
+<path d="M455 295H475" class="ln"/><path d="M630 295H650" class="ln"/><path d="M805 295H825" class="ln"/><path d="M980 295H1000" class="ln"/><path d="M1155 295H1175" class="ln"/><path d="M1330 295H1390" class="ln"/>
+
+<!-- support stores -->
+<g transform="translate(735 520)">
+ <rect width="145" height="190" rx="13" class="box"/><circle cx="25" cy="25" r="17" fill="#1677c8"/><text x="25" y="31" text-anchor="middle" class="w h" font-size="14">9</text>
+ <rect x="43" y="50" width="58" height="58" rx="9" fill="#7AA116"/><ellipse cx="72" cy="67" rx="17" ry="6" fill="none" stroke="#fff" stroke-width="2.5"/><path d="M55 67v28c0 8 34 8 34 0V67" fill="none" stroke="#fff" stroke-width="2.5"/>
+ <text x="72" y="137" text-anchor="middle" class="t h" font-size="13">Amazon S3</text><text x="72" y="157" text-anchor="middle" class="m tiny">Knowledge docs</text>
+</g>
+<g transform="translate(900 520)">
+ <rect width="145" height="190" rx="13" class="box"/><circle cx="25" cy="25" r="17" fill="#1677c8"/><text x="25" y="31" text-anchor="middle" class="w h" font-size="14">10</text>
+ <rect x="43" y="50" width="58" height="58" rx="9" fill="#2F6BD8"/><ellipse cx="72" cy="67" rx="17" ry="6" fill="none" stroke="#fff" stroke-width="2.5"/><path d="M55 67v28c0 8 34 8 34 0V67" fill="none" stroke="#fff" stroke-width="2.5"/>
+ <text x="72" y="137" text-anchor="middle" class="t h" font-size="13">DynamoDB</text><text x="72" y="157" text-anchor="middle" class="m tiny">Request metadata</text>
+</g>
+<g transform="translate(1065 520)">
+ <rect width="145" height="190" rx="13" class="box"/><circle cx="25" cy="25" r="17" fill="#1677c8"/><text x="25" y="31" text-anchor="middle" class="w h" font-size="14">11</text>
+ <rect x="43" y="50" width="58" height="58" rx="9" fill="#DD344C"/><path d="M57 84h22V101H57zM61 84V75c0-9 14-9 14 0v9M83 75h8M83 83h8M83 91h8" fill="none" stroke="#fff" stroke-width="2.2"/>
+ <text x="72" y="137" text-anchor="middle" class="t h" font-size="13">Secrets Manager</text><text x="72" y="157" text-anchor="middle" class="m tiny">Credentials</text>
+</g>
+<g transform="translate(1230 520)">
+ <rect width="145" height="190" rx="13" class="box"/><circle cx="25" cy="25" r="17" fill="#1677c8"/><text x="25" y="31" text-anchor="middle" class="w h" font-size="14">12</text>
+ <rect x="43" y="50" width="58" height="58" rx="9" fill="#D82B78"/><path d="M56 91c0-10 13-15 20-8 5-11 20-6 21 5 8 2 8 15-1 15H62c-8 0-11-9-6-12z" fill="none" stroke="#fff" stroke-width="2.2"/><circle cx="88" cy="98" r="7" fill="none" stroke="#fff" stroke-width="2"/><path d="M93 103l6 6" stroke="#fff" stroke-width="2"/>
+ <text x="72" y="137" text-anchor="middle" class="t h" font-size="13">CloudWatch</text><text x="72" y="157" text-anchor="middle" class="m tiny">Logs + metrics</text>
+</g>
+<g transform="translate(1395 520)">
+ <rect width="145" height="190" rx="13" class="box"/><circle cx="25" cy="25" r="17" fill="#1677c8"/><text x="25" y="31" text-anchor="middle" class="w h" font-size="14">13</text>
+ <rect x="43" y="50" width="58" height="58" rx="9" fill="#DD344C"/><path d="M56 87h24V104H56zM60 87V78c0-9 14-9 14 0v9" fill="none" stroke="#fff" stroke-width="2.3"/>
+ <text x="72" y="137" text-anchor="middle" class="t h" font-size="13">AWS KMS</text><text x="72" y="157" text-anchor="middle" class="m tiny">Encryption</text>
+</g>
+
+<!-- support arrows from Lambda -->
+<path d="M1252 430V495H807V520" class="dash"/><text x="870" y="490" class="t tiny">retrieve context</text>
+<path d="M1265 430V505H972V520" class="dash"/><text x="1000" y="500" class="t tiny">metadata</text>
+<path d="M1278 430V515H1137V520" class="dash"/><text x="1140" y="510" class="t tiny">secrets</text>
+<path d="M1291 430V525H1302V520" class="dash"/><path d="M1304 430V535H1467V520" class="dash"/>
+
+<!-- response -->
+<g transform="translate(45 705)"><rect width="210" height="60" rx="12" fill="#effaf3" stroke="#8bd5a5"/><circle cx="28" cy="30" r="18" fill="#1da55b"/><text x="28" y="36" text-anchor="middle" class="w h" font-size="14">14</text><text x="55" y="27" class="t h" font-size="14">Safe AI Response</text><text x="55" y="46" class="m tiny">filtered result to user</text></g>
+<path d="M1467 710V755H255" class="ret"/><path d="M150 705V480" class="ret"/><text x="700" y="742" text-anchor="middle" class="t h" font-size="14">HTTPS response (AI result)</text>
+
+<text x="60" y="850" class="w h" font-size="14">SECURE</text><text x="430" y="850" class="w h" font-size="14">OBSERVABLE</text><text x="810" y="850" class="w h" font-size="14">SCALABLE</text><text x="1250" y="850" class="w h" font-size="14">PRODUCTION READY</text>
+</svg>
